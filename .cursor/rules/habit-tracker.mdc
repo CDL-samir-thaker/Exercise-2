@@ -1,0 +1,52 @@
+---
+alwaysApply: false
+---
+
+# Habit Tracker Project Rules
+
+## Code Standards
+
+1. **TypeScript Required**: Use TypeScript (`.ts`/`.tsx`) for all new files. No plain JavaScript.
+
+2. **Small, Focused Components**: Each component should do one thing well.
+   - Keep components under 100 lines when possible
+   - Extract logic into custom hooks
+   - Extract utilities into `/utils`
+
+3. **Type Safety**: Define explicit interfaces in `/types`. Use `import type` for type-only imports.
+
+4. **Naming Conventions**:
+   - Components: `PascalCase.tsx`
+   - Hooks: `useCamelCase.ts`
+   - Utilities: `camelCase.ts`
+   - Types: `PascalCase` interfaces
+
+## Architecture
+
+5. **State Management**: All app state flows through `useHabits` hook. Components receive state via props.
+
+6. **Persistence**: localStorage only. No backend services.
+
+7. **Styling**: Simple CSS in `App.css`. No CSS frameworks.
+
+## Scope & Planning
+
+8. **MVP Scope**: Respect the scope defined in `@.cursor/plans/habit-tracker-mvp.md`.
+   - Check "Must-Haves" before adding features
+   - New features belong in "Nice-to-Haves (V2+)" unless explicitly approved
+   - "Out of Scope" items are not to be implemented
+
+9. **Planning Guidelines**: Follow `@anti-pitfall-guidelines` when updating or creating plans:
+   - MVP First: Core functionality before extras
+   - Dependency Awareness: Sequence tasks clearly
+   - Iterative Milestones: Independently valuable chunks
+   - Avoid Over-Engineering: Happy path first
+   - Clear Scope: Must-haves vs nice-to-haves
+
+## Before Making Changes
+
+- [ ] Is this within MVP scope?
+- [ ] Does it follow the dependency order in the plan?
+- [ ] Is it the simplest solution that works?
+- [ ] Are types properly defined?
+- [ ] Is the component focused and small?

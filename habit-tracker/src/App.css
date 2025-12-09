@@ -1,0 +1,360 @@
+/* ============================================
+   Habit Tracker - Simple CSS Styles
+   Mobile-first responsive design
+   ============================================ */
+
+/* CSS Variables for consistent theming */
+:root {
+  --color-primary: #6366f1;
+  --color-primary-hover: #4f46e5;
+  --color-success: #22c55e;
+  --color-danger: #ef4444;
+  --color-warning: #f59e0b;
+  --color-bg: #f8fafc;
+  --color-card: #ffffff;
+  --color-text: #1e293b;
+  --color-text-muted: #64748b;
+  --color-border: #e2e8f0;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-full: 9999px;
+}
+
+/* Reset & Base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* App Container */
+.app {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 16px;
+  min-height: 100vh;
+}
+
+.app.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ============================================
+   Dashboard Header
+   ============================================ */
+.dashboard {
+  background: linear-gradient(135deg, var(--color-primary), #8b5cf6);
+  color: white;
+  padding: 24px;
+  border-radius: var(--radius-md);
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.dashboard h1 {
+  font-size: 1.75rem;
+  margin-bottom: 4px;
+}
+
+.dashboard .date {
+  opacity: 0.9;
+  font-size: 0.95rem;
+  margin-bottom: 16px;
+}
+
+.progress-summary {
+  margin-top: 16px;
+}
+
+.progress-bar {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: var(--radius-full);
+  height: 8px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.progress-fill {
+  background: white;
+  height: 100%;
+  border-radius: var(--radius-full);
+  transition: width 0.3s ease;
+}
+
+.progress-text {
+  font-size: 0.85rem;
+  opacity: 0.95;
+}
+
+/* ============================================
+   Main Content
+   ============================================ */
+.main-content {
+  background: var(--color-card);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  padding: 24px;
+}
+
+.habits-section h2 {
+  font-size: 1.1rem;
+  color: var(--color-text-muted);
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* ============================================
+   Add Habit Form
+   ============================================ */
+.add-habit-form {
+  margin-bottom: 24px;
+}
+
+.form-row {
+  display: flex;
+  gap: 8px;
+}
+
+.add-habit-form input[type="text"] {
+  flex: 1;
+  padding: 12px 16px;
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+.add-habit-form input[type="text"]:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+.add-habit-form input.input-error {
+  border-color: var(--color-danger);
+}
+
+.add-habit-form button {
+  padding: 12px 20px;
+  background: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+
+.add-habit-form button:hover {
+  background: var(--color-primary-hover);
+}
+
+.error-message {
+  color: var(--color-danger);
+  font-size: 0.85rem;
+  margin-top: 8px;
+}
+
+/* ============================================
+   Habit List
+   ============================================ */
+.habit-list {
+  list-style: none;
+}
+
+.habit-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  margin-bottom: 8px;
+  transition: all 0.2s;
+}
+
+.habit-item:hover {
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.habit-item.completed {
+  background: #f0fdf4;
+  border-color: var(--color-success);
+}
+
+.habit-item.completed .habit-name {
+  text-decoration: line-through;
+  color: var(--color-text-muted);
+}
+
+/* Checkbox */
+.habit-checkbox input[type="checkbox"] {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  accent-color: var(--color-success);
+}
+
+/* Habit Content */
+.habit-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.habit-name {
+  display: block;
+  font-size: 1rem;
+  cursor: pointer;
+  word-break: break-word;
+}
+
+.edit-input {
+  width: 100%;
+  padding: 8px;
+  border: 2px solid var(--color-primary);
+  border-radius: var(--radius-sm);
+  font-size: 1rem;
+}
+
+/* Streak Badge */
+.habit-streak {
+  flex-shrink: 0;
+}
+
+.streak-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  background: #fef3c7;
+  color: #92400e;
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.streak-badge.hot {
+  background: #fee2e2;
+  color: #dc2626;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+/* Action Buttons */
+.habit-actions {
+  display: flex;
+  gap: 4px;
+}
+
+.btn-icon {
+  background: none;
+  border: none;
+  padding: 6px;
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  font-size: 1rem;
+  opacity: 0.6;
+  transition: all 0.2s;
+}
+
+.btn-icon:hover {
+  opacity: 1;
+  background: var(--color-bg);
+}
+
+.btn-delete:hover {
+  background: #fee2e2;
+}
+
+/* ============================================
+   Empty State
+   ============================================ */
+.empty-state {
+  text-align: center;
+  padding: 48px 24px;
+  color: var(--color-text-muted);
+}
+
+.empty-icon {
+  font-size: 3rem;
+  margin-bottom: 16px;
+}
+
+.empty-state h2 {
+  font-size: 1.25rem;
+  color: var(--color-text);
+  margin-bottom: 8px;
+}
+
+.empty-state p {
+  font-size: 0.95rem;
+}
+
+/* ============================================
+   Responsive Design
+   ============================================ */
+
+/* Tablet and up */
+@media (min-width: 640px) {
+  .app {
+    padding: 32px;
+  }
+
+  .dashboard {
+    padding: 32px;
+  }
+
+  .dashboard h1 {
+    font-size: 2rem;
+  }
+
+  .main-content {
+    padding: 32px;
+  }
+}
+
+/* Small mobile adjustments */
+@media (max-width: 400px) {
+  .form-row {
+    flex-direction: column;
+  }
+
+  .add-habit-form button {
+    width: 100%;
+  }
+
+  .habit-item {
+    flex-wrap: wrap;
+  }
+
+  .habit-streak {
+    order: 4;
+    width: 100%;
+    margin-top: 8px;
+    padding-left: 36px;
+  }
+
+  .habit-actions {
+    order: 3;
+  }
+}
